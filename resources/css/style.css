@@ -1,0 +1,33 @@
+/********************************BASIC SETUP*********************************************/
+
+/********Main brand colors and default font sizes********/
+:root {
+    font-size: 16px;
+    --white : #fff;
+}
+
+
+/********Defining margin and box sizing********/
+html { 
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.15;
+}
+
+body {
+	font-family: Open Sans;
+	font-weight: 400;
+	margin: 0;
+    padding: 0;
+}
+
+
+/********background and width adjustment********/
+
+.top {
+	height: 40vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(back.png);
+    background-size: cover;
+    background-position: center;
+}
