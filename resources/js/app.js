@@ -60,7 +60,6 @@ var controller = (function (budgetCtrl, UICtrl) {
 
         //Get the input data
         var input = UIController.getInput();
-
         //Add item to Budget Controller
 
         //Add the item to UI
@@ -70,6 +69,12 @@ var controller = (function (budgetCtrl, UICtrl) {
         //Display the Budget to UI
     };
 
-
+    return {
+    	init: function() {
+    		setupEventListeners();
+    	}
+    }
 
 })(budgetController, UIController);
+
+controller.init();
