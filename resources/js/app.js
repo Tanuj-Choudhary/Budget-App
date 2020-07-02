@@ -11,6 +11,26 @@ var budgetController = (function () {
 //VIEW
 var UIController = (function () {
 
+    var DOMstrings = {
+        inputType: '.add--type',
+        inputDescription: '.add--description',
+        inputValue: '.add--value',
+        inputButton: '.add--button'
+    };
+
+    return {
+        getInput: function () {
+            return {
+                type: document.querySelector(DOMstrings.inputType).value, //will be either inc or exp
+                desc: document.querySelector(DOMstrings.inputDescription).value,
+                value: document.querySelector(DOMstrings.inputValue).value
+            };
+        },
+
+        getDOMstrings: function () {
+            return DOMstrings;
+        }
+    };
 
 })();
 
@@ -22,9 +42,12 @@ var UIController = (function () {
 //CONTROLLER
 var controller = (function (budgetCtrl, UICtrl) {
 
+    var DOM = UIController.getDOMstrings();
+
     var ctrlAdditem = function () {
-    	
+
         //Get the input data
+        var input = UIController.getInput();
 
         //Add item to Budget Controller
 
@@ -33,9 +56,9 @@ var controller = (function (budgetCtrl, UICtrl) {
         //Calculate the Budget
 
         //Display the Budget to UI
-    }
+    };
 
-    document.querySelector('.add--button').addEventListener('click', ctrlAdditem);
+    document.querySelector(DOM.inputButton).addEventListener('click', ctrlAdditem);
 
     document.addEventListener('keypress', function (event) {
 
