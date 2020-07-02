@@ -42,7 +42,19 @@ var UIController = (function () {
 //CONTROLLER
 var controller = (function (budgetCtrl, UICtrl) {
 
-    var DOM = UIController.getDOMstrings();
+    var setupEventListeners = function () {
+        var DOM = UIController.getDOMstrings();
+
+        document.querySelector(DOM.inputButton).addEventListener('click', ctrlAdditem);
+
+        document.addEventListener('keypress', function (event) {
+
+            if (event.keyCode === 13 || event.which === 13) {
+                ctrlAdditem();
+            }
+        });
+
+    }
 
     var ctrlAdditem = function () {
 
@@ -58,13 +70,6 @@ var controller = (function (budgetCtrl, UICtrl) {
         //Display the Budget to UI
     };
 
-    document.querySelector(DOM.inputButton).addEventListener('click', ctrlAdditem);
 
-    document.addEventListener('keypress', function (event) {
-
-        if (event.keyCode === 13 || event.which === 13) {
-            ctrlAdditem();
-        }
-    });
 
 })(budgetController, UIController);
