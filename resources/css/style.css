@@ -165,3 +165,33 @@ body {
 
 
 
+
+
+
+
+/********************************Bottom SECTION*********************************************/
+.budget-list {
+	display: flex;
+	width: 62.5rem;
+	margin: 3.75rem auto;
+}
+
+.income {
+    width: 29.5rem;
+    margin-right: 3.125rem;
+}
+
+.expenses {
+    width: 29.5rem;
+}
+
+.income--title,
+.expenses--title {
+	margin-bottom: 1rem;
+	font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.income--title { color: #28B9B5; }
+.expenses--title { color: #FF5049; }
