@@ -115,13 +115,17 @@ var controller = (function (budgetCtrl, UICtrl) {
 
         //Get the input data
         var input = UIController.getInput();
-        //Add item to Budget Controller
-        var newItem = budgetController.addItem(input.type, input.desc, input.value);
-        //Add the item to UI
-        UIController.addItemUI(newItem, input.type);
-        //Calculate the Budget
 
-        //Display the Budget to UI
+        //No field should be empty
+        if (input.desc != "" && !isNaN(input.value)) {
+            //Add item to Budget Controller
+            var newItem = budgetController.addItem(input.type, input.desc, input.value);
+            //Add the item to UI
+            UIController.addItemUI(newItem, input.type);
+            //Calculate the Budget
+
+            //Display the Budget to UI
+        }
     };
 
     var setupEventListeners = function () {
