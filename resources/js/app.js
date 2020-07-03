@@ -76,7 +76,7 @@ var UIController = (function () {
             return {
                 type: document.querySelector(DOMstrings.inputType).value, //will be either inc or exp
                 desc: document.querySelector(DOMstrings.inputDescription).value,
-                value: document.querySelector(DOMstrings.inputValue).value
+                value: parseFloat(document.querySelector(DOMstrings.inputValue).value)
             };
         },
 
@@ -111,7 +111,7 @@ var UIController = (function () {
 //CONTROLLER
 var controller = (function (budgetCtrl, UICtrl) {
 
-	var ctrlAdditem = function () {
+    var ctrlAdditem = function () {
 
         //Get the input data
         var input = UIController.getInput();
@@ -140,7 +140,7 @@ var controller = (function (budgetCtrl, UICtrl) {
 
     return {
         init: function () {
-        	console.log('Application has started');
+            console.log('Application has started');
             setupEventListeners();
         }
     };
