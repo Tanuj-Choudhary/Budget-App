@@ -96,6 +96,11 @@ var UIController = (function () {
             listDOM.insertAdjacentHTML('beforeend', newHtml);
         },
 
+        clearFields: function () {
+            document.querySelector(DOMstrings.inputDescription).value = "";
+            document.querySelector(DOMstrings.inputValue).value = "";
+        },
+
         getDOMstrings: function () {
             return DOMstrings;
         }
@@ -122,6 +127,8 @@ var controller = (function (budgetCtrl, UICtrl) {
             var newItem = budgetController.addItem(input.type, input.desc, input.value);
             //Add the item to UI
             UIController.addItemUI(newItem, input.type);
+            //Clear input fields
+            UIController.clearFields();
             //Calculate the Budget
 
             //Display the Budget to UI
