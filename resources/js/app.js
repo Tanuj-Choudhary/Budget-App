@@ -198,7 +198,13 @@ var controller = (function (budgetCtrl, UICtrl) {
 
     return {
         init: function () {
+        	//checking functionality
             console.log('Application has started');
+
+            //setting initial budget (0)
+            UIController.displayBudget(budgetController.getBudget());
+
+            //event listeners
             setupEventListeners();
         }
     };
