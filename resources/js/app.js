@@ -111,7 +111,8 @@ var UIController = (function () {
         budget: '.budget--value',
         totalIncome: '.budget--income--value',
         totalExpenses: '.budget--expenses--value',
-        budgetList: '.budget-list'
+        budgetList: '.budget-list',
+        monthLabel: '.budget--title--month'
     };
 
     var formatNumber = function(number,type) {
@@ -192,6 +193,20 @@ var UIController = (function () {
         	document.querySelector(DOMstrings.budget).textContent = obj.budget > 0 ? formatNumber(obj.budget,'inc') : formatNumber(obj.budget,'exp');
         	document.querySelector(DOMstrings.totalIncome).textContent = formatNumber(obj.totalInc,'inc');
         	document.querySelector(DOMstrings.totalExpenses).textContent = formatNumber(obj.totalExp,'exp');
+        },
+
+        displayDate: function() {
+        	var todayDate,year,month,months,finalDate;
+
+        	months = ['January','Febraury','March','April','May','June','July','August','October','November','December']	
+
+        	todayDate = new Date();
+        	year = todayDate.getFullYear();
+        	month = todayDate.getMonth();
+      		
+        	finalDate = months[month] + " " + year;
+
+        	document.querySelector(DOMstrings.monthLabel).textContent = finalDate;
         },
 
         getDOMstrings: function () {
@@ -278,6 +293,9 @@ var controller = (function (budgetCtrl, UICtrl) {
         init: function () {
         	//checking functionality
             console.log('Application has started');
+
+            //Display Date
+            UIController.displayDate();
 
             //setting initial budget (0)
             UIController.displayBudget(budgetController.getBudget());
