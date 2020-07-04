@@ -166,7 +166,7 @@ var UIController = (function () {
 
             newHtml = html.replace('%id%',item.id);
             newHtml = newHtml.replace('%desc%', item.description);
-            newHtml = newHtml.replace('%value%', item.value);
+            newHtml = newHtml.replace('%value%', formatNumber(item.value,type));
             listDOM.insertAdjacentHTML('beforeend', newHtml);
         },
 
@@ -189,9 +189,9 @@ var UIController = (function () {
         },
 
         displayBudget:function (obj) {
-        	document.querySelector(DOMstrings.budget).textContent = obj.budget;
-        	document.querySelector(DOMstrings.totalIncome).textContent = obj.totalInc;
-        	document.querySelector(DOMstrings.totalExpenses).textContent = obj.totalExp;
+        	document.querySelector(DOMstrings.budget).textContent = obj.budget > 0 ? formatNumber(obj.budget,'inc') : formatNumber(obj.budget,'exp');
+        	document.querySelector(DOMstrings.totalIncome).textContent = formatNumber(obj.totalInc,'inc');
+        	document.querySelector(DOMstrings.totalExpenses).textContent = formatNumber(obj.totalExp,'exp');
         },
 
         getDOMstrings: function () {
