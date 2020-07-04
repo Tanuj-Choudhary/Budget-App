@@ -22,8 +22,21 @@ var budgetController = (function () {
         totals: {
             exp: 0,
             inc: 0
-        }
+        },
+        
+        budget:0
     };
+
+    var calculateTotal(type) {
+    	var sum = 0;
+        
+    	data.allItems[type].forEach(function(curr) {
+            sum = sum + curr.value;     
+        });
+        
+        //storing total
+        data.totals[type] = sum;
+    }
 
     return {
         addItem: function (type, desc, val) {
@@ -52,9 +65,18 @@ var budgetController = (function () {
             data.allItems[type].push(newItem);
 
             return newItem;
-        }
-    };
+        },
+        
+        calculateBudget: function () {
+            //calculate Total income and expenses
+            calculateTotal('exp');
+            calculateTotal('inc');
 
+            //calculate Budget
+            data.budget = data.totals.inc - data.totals.exp;
+        },
+        
+    };    
 })();
 
 
