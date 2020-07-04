@@ -100,7 +100,8 @@ var UIController = (function () {
         expensesList: '.expenses--list',
         budget: '.budget--value',
         totalIncome: '.budget--income--value',
-        totalExpenses: '.budget--expenses--value'
+        totalExpenses: '.budget--expenses--value',
+        budgetList: '.budget-list'
     };
 
     return {
