@@ -129,7 +129,6 @@ var UIController = (function () {
             newHtml = newHtml.replace('%desc%', item.description);
             newHtml = newHtml.replace('%value%', item.value);
             listDOM.insertAdjacentHTML('beforeend', newHtml);
-            console.log(newHtml);
         },
 
         clearFields: function () {
@@ -186,6 +185,16 @@ var controller = (function (budgetCtrl, UICtrl) {
         }
     };
 
+    //Using event delegation
+    //parent - budgetList
+    //child - icon or delete button
+    var ctrlDeleteitem = function(event) {
+    	//if icon or button is clicked
+    	if(event.target.tagName === 'I') {
+    		
+    	}
+    }
+
     var setupEventListeners = function () {
         var DOM = UIController.getDOMstrings();
 
@@ -198,6 +207,7 @@ var controller = (function (budgetCtrl, UICtrl) {
             }
         });
 
+        document.querySelector(DOM.budgetList).addEventListener('click', ctrlDeleteitem);
     };
 
     return {
