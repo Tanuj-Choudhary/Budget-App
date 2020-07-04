@@ -116,17 +116,20 @@ var UIController = (function () {
         addItemUI: function (item, type) {
             var html, listDOM, newHtml;
 
-            html = '<div class="item"><div class="item--description">%desc%</div><div class="item--right"><div class="item--value">%value%</div><div class="item--delete"><button class="delete--button"><i class="ion-ios-close-outline"></i></button></div></div></div>';
-
+            
             if (type === 'inc') {
+            	html = '<div class="item" id="inc-%id%"><div class="item--description">%desc%</div><div class="item--right"><div class="item--value">%value%</div><div class="item--delete"><button class="delete--button"><i class="ion-ios-close-outline"></i></button></div></div></div>';
                 listDOM = document.querySelector(DOMstrings.incomeList);
             } else if (type === 'exp') {
+            	html = '<div class="item" id="exp-%id%"><div class="item--description">%desc%</div><div class="item--right"><div class="item--value">%value%</div><div class="item--delete"><button class="delete--button"><i class="ion-ios-close-outline"></i></button></div></div></div>';
                 listDOM = document.querySelector(DOMstrings.expensesList);
             }
 
-            newHtml = html.replace('%desc%', item.description);
+            newHtml = html.replace('%id%',item.id);
+            newHtml = newHtml.replace('%desc%', item.description);
             newHtml = newHtml.replace('%value%', item.value);
             listDOM.insertAdjacentHTML('beforeend', newHtml);
+            console.log(newHtml);
         },
 
         clearFields: function () {
