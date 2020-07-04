@@ -177,7 +177,8 @@ var controller = (function (budgetCtrl, UICtrl) {
             UIController.addItemUI(newItem, input.type);
             //Clear input fields
             UIController.clearFields();
-            
+            //Update Budget
+            updateBudget();
         }
     };
 
