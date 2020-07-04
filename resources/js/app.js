@@ -27,7 +27,7 @@ var budgetController = (function () {
         budget:0
     };
 
-    var calculateTotal(type) {
+    var calculateTotal = function(type) {
     	var sum = 0;
         
     	data.allItems[type].forEach(function(curr) {
@@ -76,6 +76,13 @@ var budgetController = (function () {
             data.budget = data.totals.inc - data.totals.exp;
         },
         
+        getBudget: function () {
+        	return {
+        		budget: data.budget,
+        		totalInc: data.totals.inc,
+        		totalExp: data.totals.exp
+        	};
+        }
     };    
 })();
 
@@ -139,11 +146,11 @@ var UIController = (function () {
 var controller = (function (budgetCtrl, UICtrl) {
 
 	var updateBudget = function() {
-		
+		var budget;
 		//Calculate Budget
-
+		budgetController.calculateBudget();
 		//Return Budget
-
+		budget = budgetController.getBudget();
 		//Display Budget on UI
 	}
 
