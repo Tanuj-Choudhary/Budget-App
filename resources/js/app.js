@@ -116,6 +116,15 @@ var UIController = (function () {
 //CONTROLLER
 var controller = (function (budgetCtrl, UICtrl) {
 
+	var updateBudget = function() {
+		
+		//Calculate Budget
+
+		//Return Budget
+
+		//Display Budget on UI
+	}
+
     var ctrlAdditem = function () {
 
         //Get the input data
@@ -129,9 +138,7 @@ var controller = (function (budgetCtrl, UICtrl) {
             UIController.addItemUI(newItem, input.type);
             //Clear input fields
             UIController.clearFields();
-            //Calculate the Budget
-
-            //Display the Budget to UI
+            
         }
     };
 
