@@ -97,7 +97,10 @@ var UIController = (function () {
         inputValue: '.add--value',
         inputButton: '.add--button',
         incomeList: '.income--list',
-        expensesList: '.expenses--list'
+        expensesList: '.expenses--list',
+        budget: '.budget--value',
+        totalIncome: '.budget--income--value',
+        totalExpenses: '.budget--expenses--value'
     };
 
     return {
@@ -130,6 +133,12 @@ var UIController = (function () {
             document.querySelector(DOMstrings.inputValue).value = "";
         },
 
+        displayBudget:function (obj) {
+        	document.querySelector(DOMstrings.budget).textContent = obj.budget;
+        	document.querySelector(DOMstrings.totalIncome).textContent = obj.totalInc;
+        	document.querySelector(DOMstrings.totalExpenses).textContent = obj.totalExp;
+        },
+
         getDOMstrings: function () {
             return DOMstrings;
         }
@@ -152,6 +161,7 @@ var controller = (function (budgetCtrl, UICtrl) {
 		//Return Budget
 		budget = budgetController.getBudget();
 		//Display Budget on UI
+		UIController.displayBudget(budget);
 	}
 
     var ctrlAdditem = function () {
