@@ -66,6 +66,17 @@ var budgetController = (function () {
 
             return newItem;
         },
+
+        deleteItem: function(type,ID) {
+        	var item;
+
+        	data.allItems[type].forEach(function(curr,index) {
+        		if(curr.id === ID) {
+        			item = data.allItems[type].splice(index,1);
+        		}
+        	});
+        	return item;
+        },
         
         calculateBudget: function () {
             //calculate Total income and expenses
@@ -189,9 +200,21 @@ var controller = (function (budgetCtrl, UICtrl) {
     //parent - budgetList
     //child - icon or delete button
     var ctrlDeleteitem = function(event) {
+    	var itemID,itemIDSplit,type,ID;
     	//if icon or button is clicked
     	if(event.target.tagName === 'I') {
-    		
+    		itemID = event.target.closest('.item').id;
+    		itemIDSplit = itemID.split('-');
+
+    		type = itemIDSplit[0];
+    		ID = itemIDSplit[1];
+
+    		//Delete item from data structure
+    		budgetController.deleteItem(type,ID);
+    		//Delete item from UI
+
+    		//Update Budget and show Budget
+
     	}
     }
 
