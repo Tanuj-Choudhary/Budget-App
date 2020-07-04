@@ -114,6 +114,35 @@ var UIController = (function () {
         budgetList: '.budget-list'
     };
 
+    var formatNumber = function(number,type) {
+    	var numSplit,intPart,decimalPart;
+
+    	number = Math.abs(number);
+
+    	//Adding decimal upto 2 places
+    	// 1) 1000 -> 1000.00  2) 1000.2345 -> 1000.23    	
+    	number = number.toFixed(2); 
+
+    	//splitting number
+    	numSplit = number.split('.');
+    	intPart = numSplit[0];
+    	decimalPart = numSplit[1];
+
+    	//comma seperating the thousands
+    	//12300 -> 12,300
+    	if(intPart.length > 3) {	
+    		intPart = intPart.substr(0,intPart.length-3) + ',' + intPart.substr(intPart.length-3,intPart.length);
+    	}
+
+    	//joining int and decimal
+    	number = intPart + '.' + decimalPart;
+
+    	// + or - before number
+    	number = type == 'inc' ? '+' + number : '-' + number;
+
+    	return number;
+    };
+
     return {
         getInput: function () {
             return {
