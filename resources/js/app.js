@@ -209,6 +209,13 @@ var UIController = (function () {
         	document.querySelector(DOMstrings.monthLabel).textContent = finalDate;
         },
 
+        changedType: function() {
+        	document.querySelector(DOMstrings.inputDescription).classList.toggle('red-focus');
+            document.querySelector(DOMstrings.inputValue).classList.toggle('red-focus');
+            document.querySelector(DOMstrings.inputType).classList.toggle('red-focus');
+            document.querySelector(DOMstrings.inputButton).classList.toggle('red');
+        },
+
         getDOMstrings: function () {
             return DOMstrings;
         }
@@ -288,7 +295,7 @@ var controller = (function (budgetCtrl, UICtrl) {
 
         document.querySelector(DOM.budgetList).addEventListener('click', ctrlDeleteitem);
 
-        document.querySelector(DOM.add--type).addEventListener('change', UIController.changedType)
+        document.querySelector(DOM.inputType).addEventListener('change', UIController.changedType);
     };
 
     return {
