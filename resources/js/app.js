@@ -287,6 +287,8 @@ var controller = (function (budgetCtrl, UICtrl) {
         });
 
         document.querySelector(DOM.budgetList).addEventListener('click', ctrlDeleteitem);
+
+        document.querySelector(DOM.add--type).addEventListener('change', UIController.changedType)
     };
 
     return {
