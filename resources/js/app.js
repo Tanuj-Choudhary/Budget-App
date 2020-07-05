@@ -187,6 +187,9 @@ var UIController = (function () {
         clearFields: function () {
             document.querySelector(DOMstrings.inputDescription).value = "";
             document.querySelector(DOMstrings.inputValue).value = "";
+
+            //changing focus
+            document.querySelector(DOMstrings.inputDescription).focus();
         },
 
         displayBudget:function (obj) {
